@@ -7,7 +7,7 @@ source src/hardcoded_variables.txt
 source test/helper.sh
 
 @test "running the apt update function in some file and verifying log output." {
-	LOG_CONTENT=$(cat $LOG_LOCATION"apt_0_update.txt")
+	LOG_CONTENT=$(cat $LOG_LOCATION"apt_update.txt")
         ALLOWED_RESULTS=("Reading package lists... Building dependency tree... Reading state information... All packages are up to date."
         	"packages can be upgraded. Run 'apt list --upgradable' to see them."
         )
@@ -17,14 +17,14 @@ source test/helper.sh
 }
 
 @test "running the apt upgrade function in some file and verifying log output." {
-	LOG_ENDING=$(tail -c 11 $LOG_LOCATION"apt_1_upgrade.txt")
+	LOG_ENDING=$(tail -c 11 $LOG_LOCATION"apt_upgrade.txt")
 	EXPECTED_OUTPUT=" upgraded."
 		
 	assert_equal "$LOG_ENDING" "$EXPECTED_OUTPUT"
 }
 
 @test "running the apt install git function in some file and verifying head of log output." {
-	LOG_CONTENT=$(cat $LOG_LOCATION"apt_2_install_git.txt")
+	LOG_CONTENT=$(cat $LOG_LOCATION"apt_install_git.txt")
 	ALLOWED_RESULTS=("Reading package lists... Building dependency tree... Reading state information... git is already the newest version"
         )
         

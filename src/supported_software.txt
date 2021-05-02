@@ -2,6 +2,7 @@ installationType: apt
 apt: spotify
 apt: github
 apt: signal
+apt: adb
 installationType: snap
 installationType: custom
 installationType: needUserInput

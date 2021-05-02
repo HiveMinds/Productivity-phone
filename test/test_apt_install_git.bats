@@ -17,9 +17,9 @@ setup() {
 	fi
 	
 	# Declare filenames of files that perform commands
-	declare -a arr=("apt_0_update"
-                "apt_1_upgrade"
-                "apt_2_install_git"
+	declare -a arr=("apt_update"
+                "apt_upgrade"
+                "apt_install_git"
                 )
                 	
 	# Loop through files that perform commands
@@ -31,7 +31,7 @@ setup() {
 }
 
 @test "running the apt update function in some file and verifying log output." {
-	LOG_CONTENT=$(cat $LOG_LOCATION"apt_0_update.txt")
+	LOG_CONTENT=$(cat $LOG_LOCATION"apt_update.txt")
         ALLOWED_RESULTS=("Reading package lists... Building dependency tree... Reading state information... All packages are up to date."
         	"packages can be upgraded. Run 'apt list --upgradable' to see them."
         )
@@ -41,14 +41,14 @@ setup() {
 }
 
 @test "running the apt upgrade function in some file and verifying log output." {
-	LOG_ENDING=$(tail -c 11 $LOG_LOCATION"apt_1_upgrade.txt")
+	LOG_ENDING=$(tail -c 11 $LOG_LOCATION"apt_upgrade.txt")
 	EXPECTED_OUTPUT=" upgraded."
 		
 	assert_equal "$LOG_ENDING" "$EXPECTED_OUTPUT"
 }
 
 @test "running the apt install git function in some file and verifying log output." {
-	LOG_ENDING=$(head -c 115 $LOG_LOCATION"apt_2_install_git.txt")
+	LOG_ENDING=$(head -c 115 $LOG_LOCATION"apt_install_git.txt")
 	EXPECTED_OUTPUT="Reading package lists... Building dependency tree... Reading state information... git is already the newest version"
 		
 	assert_equal "$LOG_ENDING" "$EXPECTED_OUTPUT"

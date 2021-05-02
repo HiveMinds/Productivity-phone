@@ -1,4 +1,13 @@
 installationType: apt
+apt: spotify
+apt: github
+apt: signal
+apt: adb
+installationType: snap
+installationType: custom
+installationType: needUserInput
+installationType: deviceDependent
+installationType: apt
 apt: github
 apt: somepackage
 installationType: snap

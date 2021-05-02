@@ -3,10 +3,10 @@
 install_signal() {
 	
 	# Declare filenames of files that perform commands
-	declare -a arr=("apt_3_1_install_signal"
-                "apt_3_2_install_signal"
-                "apt_0_update"
-                "apt_3_4_install_signal"
+	declare -a arr=("apt_install_signal_1"
+                "apt_install_signal_2"
+                "apt_update"
+                "apt_install_signal_4"
                 )
 
 	# Loop through files that perform commands
