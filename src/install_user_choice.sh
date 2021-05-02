@@ -5,6 +5,7 @@ source src/apt_github.sh
 source src/apt_signal.sh
 source src/apt_adb.sh
 source src/apt_fastboot.sh
+source src/custom_ask_user_to_enable_adb.sh
 
 install_user_choices() {
 	selected_software_packages=($(read_software_packages "selected")) # outer brackets to store as list
@@ -19,6 +20,8 @@ install_user_choices() {
 			$(install_adb) # install user choice: adb
 		elif [ "${selected_software_packages[i]}" == fastboot ]; then
 			$(install_fastboot) # install user choice: fastboot
+		elif [ "${selected_software_packages[i]}" == enable_adb ]; then
+			$(custom_ask_user_to_enable_adb) # install user choice: fastboot
 		fi
 	done
 }
@@ -36,6 +39,8 @@ test_user_choice_installation() {
 			test_adb
 		elif [ "${selected_software_packages[i]}" == fastboot ]; then
 			test_fastboot
+		elif [ "${selected_software_packages[i]}" == enable_adb ]; then
+			test_custom_ask_user_to_enable_adb
 		fi
 	done
 }

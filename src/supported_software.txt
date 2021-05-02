@@ -6,5 +6,6 @@ apt: adb
 apt: fastboot
 installationType: snap
 installationType: custom
+custom: enable_adb
 installationType: needUserInput
 installationType: deviceDependent

@@ -6,7 +6,8 @@ rm -r ./src/logs
 #./test/libs/bats/bin/bats test/test_is_allowed_result_head.bats
 #./test/libs/bats/bin/bats test/test_apt_install_git.bats
 #./test/libs/bats/bin/bats test/test_apt_install_adb.bats
-./test/libs/bats/bin/bats test/test_apt_install_fastboot.bats
+#./test/libs/bats/bin/bats test/test_apt_install_fastboot.bats
+./test/libs/bats/bin/bats test/test_custom_install_ask_user_to_enable_adb.bats
 #./test/libs/bats/bin/bats test/test_install_git_through_user_selection.bats  
 #./test/libs/bats/bin/bats test/test_is_allowed_result_tail.bats
 #./test/libs/bats/bin/bats test/post_setup  test_apt_install_signal.bats  
