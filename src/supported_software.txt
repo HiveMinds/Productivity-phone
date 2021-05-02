@@ -8,5 +8,6 @@ installationType: snap
 installationType: custom
 custom: enable_adb
 custom: get_twrp
+custom: reboot_bootloader
 installationType: needUserInput
 installationType: deviceDependent

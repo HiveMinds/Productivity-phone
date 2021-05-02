@@ -4,10 +4,8 @@ custom_install() {
 	
 	# TODO: include gif display:https://unix.stackexchange.com/questions/317537/how-to-open-a-gif-without-loop-repetition-with-oeg
 	# Note. gif in terminal is awesome but not practical because the chosen installation options and responses should remain visible.
-	x=1
 	while :
 	do
-		x=$(( $x + 1 ))
 		read -p "Please enable adb-debugging on your phone. See enable_adb.gif on how to do so. Answer y when don$x and $yn e.?" yn
 		if [ "$yn" == "y" ]
 		then

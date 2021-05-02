@@ -7,6 +7,7 @@ source src/apt_adb.sh
 source src/apt_fastboot.sh
 source src/custom_ask_user_to_enable_adb.sh
 source src/custom_get_twrp.sh
+source src/custom_reboot_bootloader.sh
 
 install_user_choices() {
 	selected_software_packages=($(read_software_packages "selected")) # outer brackets to store as list
@@ -25,6 +26,9 @@ install_user_choices() {
 			$(custom_ask_user_to_enable_adb) # install user choice: fastboot
 		elif [ "${selected_software_packages[i]}" == get_twrp ]; then
 			$(custom_get_twrp) # install user choice: fastboot
+		elif [ "${selected_software_packages[i]}" == reboot_bootloader ]; then
+			$(custom_reboot_bootloader) # install user choice: fastboot
+			
 		fi
 	done
 }
@@ -44,8 +48,10 @@ test_user_choice_installation() {
 			test_fastboot
 		elif [ "${selected_software_packages[i]}" == enable_adb ]; then
 			test_custom_ask_user_to_enable_adb
-			elif [ "${selected_software_packages[i]}" == get_twrp ]; then
+		elif [ "${selected_software_packages[i]}" == get_twrp ]; then
 			test_custom_get_twrp
+		elif [ "${selected_software_packages[i]}" == reboot_bootloader ]; then
+			test_custom_reboot_bootloader
 		fi
 	done
 }

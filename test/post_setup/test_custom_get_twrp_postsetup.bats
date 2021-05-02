@@ -6,7 +6,7 @@ load '../../test/libs/bats-assert/load'
 source src/hardcoded_variables.txt
 source test/helper.sh
 
-@test "Verifying the host.gz md5 is as expected." {
+@test "Verifying the twrp md5 is as expected." {
 	
 	# Read out the md5 checksum of the downloaded social package.
 	md5_of_social_package=$(sudo md5sum "$TWRP_FILEPATH")

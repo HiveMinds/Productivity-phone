@@ -17,9 +17,10 @@ setup() {
 	fi
 	
 	# Declare filenames of files that perform commands
-	# TODO: Install curl and test it
-	declare -a arr=("custom_install_get_twrp"
-                )
+	declare -a arr=(
+		"custom_install_reboot_bootloader_1"
+		"custom_install_reboot_bootloader_2"
+	)
                 	
 	# Loop through files that perform commands
 	for i in "${arr[@]}"
@@ -29,15 +30,7 @@ setup() {
 	done
 }
 
-
-@test "Verifying the twrp md5 is as expected." {
-	
-	# Read out the md5 checksum of the downloaded social package.
-	md5_of_social_package=$(sudo md5sum "$TWRP_FILEPATH")
-	
-	# Extract actual md5 checksum from the md5 command response.
-	md5_of_social_package_head=${md5_of_social_package:0:32}
-	
-	# Assert the measured md5 checksum equals the hardcoded md5 checksum of the expected file.
-	assert_equal "$md5_of_social_package_head" "$TWRP_MD5"
+@test "Checking fastboot version response." {
+	actual_result=$(fastboot devices)
+	assert_equal "${actual_result:9:8}" "fastboot"
 }
