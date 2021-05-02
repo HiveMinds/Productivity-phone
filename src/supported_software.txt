@@ -1,0 +1,8 @@
+installationType: apt
+apt: spotify
+apt: github
+apt: signal
+installationType: snap
+installationType: custom
+installationType: needUserInput
+installationType: deviceDependent
