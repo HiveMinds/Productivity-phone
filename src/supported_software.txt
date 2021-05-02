@@ -3,6 +3,7 @@ apt: spotify
 apt: github
 apt: signal
 apt: adb
+apt: fastboot
 installationType: snap
 installationType: custom
 installationType: needUserInput
