@@ -7,5 +7,6 @@ apt: fastboot
 installationType: snap
 installationType: custom
 custom: enable_adb
+custom: get_twrp
 installationType: needUserInput
 installationType: deviceDependent
