@@ -4,16 +4,32 @@ custom_install() {
 	
 	# TODO: include gif display:https://unix.stackexchange.com/questions/317537/how-to-open-a-gif-without-loop-repetition-with-oeg
 	# Note. gif in terminal is awesome but not practical because the chosen installation options and responses should remain visible.
-	while true; do
-		read -p "Please enable adb-debugging on your phone. See enable_adb.gif on how to do so. Answer y when done.?" yn
-		case $yn in
-		[Yy]* ) echo "true"; break;;
-		* ) echo "Please answer yes or no.";;
-		esac
+	x=1
+	while :
+	do
+		x=$(( $x + 1 ))
+		read -p "Please enable adb-debugging on your phone. See enable_adb.gif on how to do so. Answer y when don$x and $yn e.?" yn
+		if [ "$yn" == "y" ]
+		then
 		
-		# is not executed
-		# TODO: copy test content and move the break;; in line 10 only effective after the test is passed
-		./test/libs/bats/bin/bats test/post_setup/test_custom_install_ask_user_to_enable_adb_postsetup.bats
+			## Verify the device is recognised by adb debugging
+			# Remove device id files if exist
+			if [ -f "$DEVICE_ID_PATH" ] ; then
+				rm "$DEVICE_ID_PATH"
+			fi
+			
+			# Scan device id
+			run_main_functions custom_verify_adb_enabled
+			
+			# read device id from file
+			device_id=$(head -c 8 "$DEVICE_ID_PATH")
+			
+			# break if device id is found and contains 8 characters
+			if [ ${#device_id} -eq 8 ]; then 
+				break
+			fi
+			
+		fi
 	done
 }
 custom_install "$@"

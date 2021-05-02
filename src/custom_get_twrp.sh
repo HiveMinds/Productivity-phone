@@ -4,7 +4,9 @@ custom_get_twrp() {
 	
 	# Declare filenames of files that perform commands
 	# TODO: Install curl and test it
-	declare -a arr=("custom_install_get_twrp")
+	declare -a arr=(
+	"custom_install_get_twrp"
+	)
                 	
 	# Loop through files that perform commands
 	for i in "${arr[@]}"

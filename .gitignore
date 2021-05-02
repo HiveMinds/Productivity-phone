@@ -1,0 +1,13 @@
+*src/logs/*
+*/src/logs/*
+*src/logs*
+*/src/logs*
+
+# git files
+/.metadata/
+
+# bats test modules
+test/libs/*
+
+# openvpn3 key file
+openvpn-repo-pkg-key.pub

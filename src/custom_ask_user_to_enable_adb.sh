@@ -3,7 +3,10 @@
 custom_ask_user_to_enable_adb() {
 	
 	# Declare filenames of files that perform commands
-	declare -a arr=("custom_install_ask_user_to_enable_adb")
+	declare -a arr=(
+		"custom_install_ask_user_to_enable_adb"
+		#"custom_verify_adb_enabled"
+	)
                 	
 	# Loop through files that perform commands
 	for i in "${arr[@]}"
