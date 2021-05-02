@@ -25,7 +25,7 @@ apt_update() {
 			fastboot_mode_response=$(head -c 17 "$FASTBOOT_MODE_RESPONSE_PATH")
 			
 			if [ "${fastboot_mode_response}" == "$device_id	fastboot" ]; then
-				break
+				echo "Thephoneisinfastbootmode"
 			fi
 		fi
 		

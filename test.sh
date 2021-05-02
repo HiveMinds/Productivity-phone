@@ -14,4 +14,4 @@ rm -r ./src/logs
 #./test/libs/bats/bin/bats test/post_setup  test_apt_install_signal.bats  
 #./test/libs/bats/bin/bats test/test_is_allowed_result_contains.bats
 #./test/libs/bats/bin/bats test/test_remainder_helper_functions.bats
-./test/libs/bats/bin/bats test/test_apt_install_adb_reboot_bootloader.bats
+#./test/libs/bats/bin/bats test/test_apt_install_adb_reboot_bootloader.bats

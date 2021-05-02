@@ -18,7 +18,6 @@ apt_update() {
 		if [ ${#device_id} -eq 8 ]; then 
 			pass=""
 		else
-			#break;
 			exit 0
 		fi
 	
