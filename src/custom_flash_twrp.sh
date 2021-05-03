@@ -1,11 +1,13 @@
 #!/bin/bash
 # Declare filenames of files that perform commands to install github
-custom_ask_user_to_enable_adb() {
+custom_flash_twrp() {
 	
 	# Declare filenames of files that perform commands
+	# TODO: Install curl and test it
 	declare -a arr=(
-		"custom_install_ask_user_to_enable_adb"
-		"custom_verify_adb_enabled"
+	#"custom_install_reboot_bootloader_1"
+	#"custom_install_reboot_bootloader_2"
+	"custom_install_flash_twrp"
 	)
                 	
 	# Loop through files that perform commands
@@ -16,6 +18,6 @@ custom_ask_user_to_enable_adb() {
 	done
 }
 
-test_custom_ask_user_to_enable_adb() {
-	./test/libs/bats/bin/bats test/post_setup/test_custom_install_ask_user_to_enable_adb_postsetup.bats
+test_custom_flash_twrp() {
+	./test/libs/bats/bin/bats test/post_setup/test_custom_flash_twrp_postsetup.bats
 }

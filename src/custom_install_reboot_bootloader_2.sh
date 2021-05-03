@@ -26,6 +26,9 @@ apt_update() {
 			
 			if [ "${fastboot_mode_response}" == "$device_id	fastboot" ]; then
 				break
+			else
+				now=$(date +"%T")
+				echo $now > "${TIMESTAMP_PATH}"
 			fi
 		fi
 		

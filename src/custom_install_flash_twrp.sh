@@ -21,11 +21,17 @@ apt_update() {
 			# Scan fastboot mode check response
 			run_main_functions custom_verify_fastboot_mode_enabled
 			
+			
+			
 			# read device id from file
 			fastboot_mode_response=$(head -c 17 "$FASTBOOT_MODE_RESPONSE_PATH")
 			
+			
 			if [ "${fastboot_mode_response}" == "$device_id	fastboot" ]; then
-				echo "Thephoneisinfastbootmode"
+				#echo "Thephoneisinfastbootmode"
+				#echo $fastboot_mode_response > "${TIMESTAMP_PATH}"
+				run_main_functions custom_install_flash_twrp_2
+				break;
 			fi
 		fi
 		

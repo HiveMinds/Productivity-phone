@@ -9,5 +9,6 @@ installationType: custom
 custom: enable_adb
 custom: get_twrp
 custom: reboot_bootloader
+custom: flash_twrp
 installationType: needUserInput
 installationType: deviceDependent
