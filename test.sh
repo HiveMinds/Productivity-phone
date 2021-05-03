@@ -20,4 +20,4 @@ rm -r ./src/logs
 #./test/libs/bats/bin/bats test/test_apt_install_adb_reboot_bootloader.bats
 #./test/libs/bats/bin/bats test/test_apt_install_custom_flash_twrp.bats
 
-./test/libs/bats/bin/bats test/post_setup/test_custom_flash_twrp_postsetup.bats  
+./test/libs/bats/bin/bats test/post_setup/test_custom_flash_twrp_postsetup.bats
