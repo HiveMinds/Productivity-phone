@@ -35,12 +35,21 @@ apt_update() {
 					# reboot into twrp:
 					while :
 					do
-						read -p "Yay, you have flashed twrp recovery on your fairphone.\n Now you need to press and hold POWER ON+VOLUME UP as soon as your phone shuts down, untill you see the blue TWRP screen.Will you do that?\n\n (Once you answer yes, we will wait 1 second for you to switch from keyboard to phone, and then send the shutdown signal.)" yn
+						read -p "When the screen goes black (1 sec after answering y), immediately press and hold  POWER ON+VOLUME UP till you see the blue TWRP screen. Will you  do that?" yn
 						if [ "$yn" == "y" ]
 						then			
 							# note fastboot reboot recovery did not boot into recovery even though adb reboot recovery did.
 							# Temporary solution, ask user to hold volume up and power on buttons simultaneuosly while phone boots.
 							reboot_into_twrp=$(fastboot reboot)
+							
+							# verify command with 
+							# adb shell twrp print none
+							# which should return:
+							# none
+							#Done processing script file
+							
+							# and it should not return:
+							# /system/bin/sh: twrp: not found
 							break;
 						fi
 					done

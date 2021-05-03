@@ -12,10 +12,12 @@ rm -r ./src/logs
 
 #./test/libs/bats/bin/bats test/test_apt_install_git.bats
 
-#./test/libs/bats/bin/bats test/post_setup  test_apt_install_signal.bats  
+
 #./test/libs/bats/bin/bats test/test_apt_install_adb.bats
 #./test/libs/bats/bin/bats test/test_apt_install_fastboot.bats
 #./test/libs/bats/bin/bats test/test_custom_install_ask_user_to_enable_adb.bats
 #./test/libs/bats/bin/bats test/test_custom_get_twrp.bats
 #./test/libs/bats/bin/bats test/test_apt_install_adb_reboot_bootloader.bats
-./test/libs/bats/bin/bats test/test_apt_install_custom_flash_twrp.bats
+#./test/libs/bats/bin/bats test/test_apt_install_custom_flash_twrp.bats
+
+./test/libs/bats/bin/bats test/post_setup/test_custom_flash_twrp_postsetup.bats  
