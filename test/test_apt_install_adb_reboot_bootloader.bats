@@ -31,6 +31,8 @@ setup() {
 }
 
 @test "Checking fastboot version response." {
+	sleep 10
 	actual_result=$(fastboot devices)
+	restart_device_after_test=$(fastboot reboot)
 	assert_equal "${actual_result:9:8}" "fastboot"
 }

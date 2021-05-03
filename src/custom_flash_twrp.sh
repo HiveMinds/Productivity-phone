@@ -5,8 +5,6 @@ custom_flash_twrp() {
 	# Declare filenames of files that perform commands
 	# TODO: Install curl and test it
 	declare -a arr=(
-	#"custom_install_reboot_bootloader_1"
-	#"custom_install_reboot_bootloader_2"
 	"custom_install_flash_twrp"
 	)
                 	
