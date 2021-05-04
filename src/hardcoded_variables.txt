@@ -41,11 +41,19 @@ LINEAGEOS_MD5="1b5f54b8a256035e114d2422e5731d8e"
 
 # Source: https://support.fairphone.com/hc/en-us/articles/207914363
 FAIRPHONE_OS_URL="https://storage.googleapis.com/fairphone-updates/13484ddf-8791-4a7a-a876-641d5e8eb3ab/fp2-gms-19.11.2-manual-v2.zip"
-FAIRPHONE_FILENAME="fp2-gms-19.11.2-manual-v2.zip"
-FAIRPHONE_FILEPATH=$LOG_LOCATION$FAIRPHONE_FILENAME
-FAIRPHONE_MD5="e1601288869f99143b664ea98f825760"
+FAIRPHONE_OS_FILENAME="fp2-gms-19.11.2-manual-v2.zip"
+FAIRPHONE_OS_FILEPATH=$LOG_LOCATION$FAIRPHONE_OS_FILENAME
+FAIRPHONE__OS_MD5="e1601288869f99143b664ea98f825760"
 
-OS_CHOICE="fairphone"
+# Source: https://code.fairphone.com/projects/fp-osos/user/fairphone-open-source-os-downloads.html
+FAIRPHONE_OPEN_URL="https://storage.googleapis.com/fairphone-updates/ed0bd398-399b-4fb0-88f9-f2142fd425ad/21.03.0-rel.2-sibon-3cb25d6c-ota.zip"
+FAIRPHONE_OPEN_FILENAME="19.11.2-sibon-24df0be9-ota.zip"
+FAIRPHONE_OPEN_FILEPATH=$LOG_LOCATION$FAIRPHONE_OPEN_FILENAME
+FAIRPHONE__OPEN_MD5="259d263a44e427e4bf7ad1426c52e993"
+
+
+#OS_CHOICE="fairphone_os"
+OS_CHOICE="fairphone_open"
 #OS_CHOICE="lineage"
 
 
