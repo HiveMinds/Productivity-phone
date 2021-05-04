@@ -6,6 +6,9 @@ load '../../test/libs/bats-assert/load'
 source src/hardcoded_variables.txt
 source test/helper.sh
 
+# TODO: include testing md5 of Fairphone OS in case the selected os is Fairphone OS instead of LineageOS
+# (See custom_install_get_lineageos.sh)
+# TODO: rename get_lineageos.sh to get_os.sh
 @test "Verifying the lineageos md5 is as expected." {
 	
 	# Read out the md5 checksum of the downloaded social package.
