@@ -4,7 +4,7 @@ apt_update() {
 	
 	source src/hardcoded_variables.txt
 	
-	# Determine which os is selected.
+# Determine which os is selected.
 	if [ "$OS_CHOICE" == "fairphone_os" ]; then
 		os_filepath="$FAIRPHONE_OS_FILEPATH"
 		os_url="$FAIRPHONE_OS_URL"
@@ -12,8 +12,8 @@ apt_update() {
 	elif [ "$OS_CHOICE" == "fairphone_open" ]; then
 		os_filepath="$FAIRPHONE_OPEN_FILEPATH"
 		os_url="$FAIRPHONE_OPEN_URL"
-		expected_md5_of_os_zip="$FAIRPHONE__OPEN_MD5"
-	elif [ "$OS_CHOICE" == "fairphone" ]; then
+		expected_md5_of_os_zip="$FAIRPHONE_OPEN_MD5"
+	elif [ "$OS_CHOICE" == "lineage_os" ]; then
 		os_filepath="$LINEAGEOS_FILEPATH"
 		os_url="$LINEAGEOS_URL"
 		expected_md5_of_os_zip="$LINEAGEOS_MD5"
