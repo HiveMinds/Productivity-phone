@@ -10,6 +10,8 @@ source src/custom_get_twrp.sh
 source src/custom_reboot_bootloader.sh
 source src/custom_flash_twrp.sh
 source src/custom_get_lineageos.sh
+source src/custom_twrp_format_data.sh
+source src/custom_sideload_lineage.sh
 
 install_user_choices() {
 	selected_software_packages=($(read_software_packages "selected")) # outer brackets to store as list
@@ -34,6 +36,10 @@ install_user_choices() {
 			$(custom_flash_twrp) # install user choice: fastboot
 		elif [ "${selected_software_packages[i]}" == get_lineageos ]; then
 			$(custom_get_lineageos) # install user choice: fastboot
+		elif [ "${selected_software_packages[i]}" == twrp_format_data ]; then
+			$(custom_twrp_format_data) # install user choice: fastboot
+		elif [ "${selected_software_packages[i]}" == sideload_lineage ]; then
+			$(custom_sideload_lineage) # install user choice: fastboot
 		fi
 	done
 }

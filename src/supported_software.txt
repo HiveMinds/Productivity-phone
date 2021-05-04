@@ -11,5 +11,7 @@ custom: get_twrp
 custom: reboot_bootloader
 custom: flash_twrp
 custom: get_lineageos
+custom: twrp_format_data
+custom: sideload_lineage
 installationType: needUserInput
 installationType: deviceDependent
