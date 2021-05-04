@@ -50,6 +50,8 @@ apt_update() {
 							
 							# and it should not return:
 							# /system/bin/sh: twrp: not found
+							sleep 20
+							# TODO: verify the fastboot reboot was succesfull before proceeding.
 							break;
 						fi
 					done
