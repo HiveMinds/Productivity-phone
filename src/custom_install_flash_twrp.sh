@@ -8,7 +8,7 @@ apt_update() {
 		# read device id from file
 		device_id=$(head -c 8 "$DEVICE_ID_PATH")
 		
-		sleep 5
+		sleep 10
 		# break if device id is found and contains 8 characters
 		if [ ${#device_id} -eq 8 ]; then 
 			

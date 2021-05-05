@@ -18,6 +18,7 @@ custom_install() {
 			
 			# Scan device id
 			run_main_functions custom_install_get_device_id_with_adb
+			run_main_functions custom_verify_fastboot_mode_enabled
 			
 			# read device id from file
 			#device_id=$(head -c 8 "$DEVICE_ID_PATH")

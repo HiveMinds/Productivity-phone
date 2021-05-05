@@ -11,7 +11,8 @@ custom_verify_fastboot_mode_enabled() {
 	#echo "$actual_result" > "${FASTBOOT_MODE_RESPONSE_PATH}"
 	
 	# read device_id from file
-	device_id=$(head -c 8 "$DEVICE_ID_PATH")
+	device_id=$(head -c 8 "$FASTBOOT_DEVICE_ID_PATH")
+	echo "device_id =$device_id"
 	
 	if [ "${actual_result:0:17}" == "$device_id	fastboot" ]; then
 			
