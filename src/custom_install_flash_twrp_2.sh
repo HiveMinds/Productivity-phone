@@ -33,7 +33,8 @@ apt_update() {
 					# reboot to adb/normal mode. Hence the flash command is followed by an attempted `
 					# fastboot reboot recovery` command.
 					# reboot into twrp:
-					while :
+					rebooted_into_recovery_mode="false"
+					while  [ "$rebooted_into_recovery_mode" == "false" ]:
 					do
 						read -p "When the screen goes black (1 sec after answering y), immediately press and hold  POWER ON+VOLUME UP till you see the blue TWRP screen. Will you  do that?" yn
 						if [ "$yn" == "y" ]
@@ -50,9 +51,22 @@ apt_update() {
 							
 							# and it should not return:
 							# /system/bin/sh: twrp: not found
+							
 							sleep 20
 							# TODO: verify the fastboot reboot was succesfull before proceeding.
-							break;
+							adb_devices=$(adb devices)
+							device_id="${adb_devices:25:8}"
+							mode="${adb_devices:33:9}"
+							if [ ${#device_id} -eq 8 ]; then 
+								if [ "$mode" == " recovery" ]; then
+									#break;
+									rebooted_into_recovery_mode="true"
+								else
+									echo "$mode"
+								fi
+							else
+								echo "$device_id"
+							fi
 						fi
 					done
 					
@@ -60,7 +74,6 @@ apt_update() {
 					# fastboot reboot
 					# adb reboot recovery
 					# is the same ad pressing power and volume up, goes into > "No command found."
-					break;
 				fi
 			done
 		else

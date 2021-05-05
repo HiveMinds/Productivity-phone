@@ -1,3 +1,7 @@
+#OS_CHOICE="fairphone_os"
+#OS_CHOICE="fairphone_open"
+OS_CHOICE="lineage_os"
+
 LOG_LOCATION=src/logs/
 SUPPORTED_SOFTWARE_LIST_LOCATION=src/supported_software.txt
 SELECTED_SOFTWARE_LIST_LOCATION=src/logs/selected_software.txt
@@ -52,9 +56,7 @@ FAIRPHONE_OPEN_FILEPATH=$LOG_LOCATION$FAIRPHONE_OPEN_FILENAME
 FAIRPHONE_OPEN_MD5="259d263a44e427e4bf7ad1426c52e993"
 
 
-#OS_CHOICE="fairphone_os"
-#OS_CHOICE="fairphone_open"
-OS_CHOICE="lineage_os"
+
 
 
 DEVICE_ID_FILENAME="device_id.txt"

@@ -17,13 +17,16 @@ custom_install() {
 			fi
 			
 			# Scan device id
-			run_main_functions custom_verify_adb_enabled
+			run_main_functions custom_install_get_device_id_with_adb
 			
 			# read device id from file
+			#device_id=$(head -c 8 "$DEVICE_ID_PATH")
 			device_id=$(head -c 8 "$DEVICE_ID_PATH")
+			read -d $'\x04' device_id < "$DEVICE_ID_PATH"
 			
 			# break if device id is found and contains 8 characters
-			if [ ${#device_id} -eq 8 ]; then 
+			#if [ ${#device_id} -eq 8 ]; then 
+			if [ "$device_id" != "" ]; then
 				break
 			fi
 			
