@@ -30,11 +30,11 @@ apt_update() {
 	
 	# Assert the measured md5 checksum equals the hardcoded md5 checksum of the expected file.
 	if [ "$md5_of_os_zip_head" != "$expected_md5_of_os_zip" ]; then
-	 
-	
-		update=$(yes | curl $os_url > "$os_filepath")
-		#curl --header 'Host: mirrors.dotsrc.org' --user-agent 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:88.0) Gecko/20100101 Firefox/88.0' --header 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8' --header 'Accept-Language: en-US,en;q=0.5' --header 'Upgrade-Insecure-Requests: 1' --header 'Sec-GPC: 1' 'https://mirrors.dotsrc.org/lineageos/full/FP2/20210430/lineage-17.1-20210430-nightly-FP2-signed.zip' --output 'lineage-17.1-20210430-nightly-FP2-signed.zip'
+		#update=$(yes | curl $os_url > "$os_filepath") # TODO: uncomment to get file
 		echo $update > "${LOG_PATH}"
+		
+		#curl --header 'Host: mirrors.dotsrc.org' --user-agent 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:88.0) Gecko/20100101 Firefox/88.0' --header 'Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8' --header 'Accept-Language: en-US,en;q=0.5' --header 'Upgrade-Insecure-Requests: 1' --header 'Sec-GPC: 1' 'https://mirrors.dotsrc.org/lineageos/full/FP2/20210430/lineage-17.1-20210430-nightly-FP2-signed.zip' --output 'lineage-17.1-20210430-nightly-FP2-signed.zip'
 	fi
+	read -p "Done with curling the os zip file." sink
 }
 apt_update "$@"

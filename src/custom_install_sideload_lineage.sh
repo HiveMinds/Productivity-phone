@@ -28,12 +28,20 @@ apt_update() {
 		# enable sideloading
 		enable_sideloading=$(adb shell twrp sideload)
 		#echo $enable_sideloading > "${ENABLE_SIDELOADING_DATA_PATH}"
-		
+		read -p "Starting the sideloading" sink
 		sleep 20
 		
 		sideload_lineage=$(sudo adb sideload $os_filepath)
+		read -p "(<press enter when read>)The output of the sideload lineage command is:$sideload_lineage" sink
+		
 		# TODO: refactor to Sideload_os_data_path
 		echo $sideload_lineage > "${SIDELOAD_LINEAGE_DATA_PATH}"
+		
+		sleep 200
+		read -p "Now starting exit sideloading<press enter>" sink
+		
+		exit_sideloading=$(sudo adb sideload /dev/null)
+		read -p "<press enter when read>The output of the sideload lineage command is:$exit_sideloading" sink
 		
 		# TODO: format data before reboot
 		wipe_data=$(adb shell twrp wipe data)
