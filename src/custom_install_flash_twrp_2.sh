@@ -69,7 +69,8 @@ apt_update() {
 					
 					# Verify if booted into twrp
 					twrp_status_response=$(adb shell twrp print none)
-					read -p "the first four characters of the responseis:${twrp_status_response:0:4}"
+					#read -p "the first four characters of the responseis:${twrp_status_response:0:4}"
+					echo "the first four characters of the responseis:${twrp_status_response:0:4}" >&2
 					if [ "${twrp_status_response:0:4}" == "none" ]; then
 						#read -p "Succesfully booted into twrp." sink
 						rebooted_into_recovery_mode="true"
