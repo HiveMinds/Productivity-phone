@@ -78,8 +78,39 @@ apt_update() {
 		read -p "LAST CHANCE TO INSPECT THE INSTALLATION LOG ON THE PHONE" sink
 		
 		echo "Now going to reboot the system." >&2
-		final_adb_reboot=$(adb reboot)
-		echo $final_adb_reboot > "${FINAL_ADB_REBOOT_PATH}"
+		
+		
+		if [ "$OS_CHOICE" == "fairphone_open" ]; then
+			echo "Post sideloading factory reset for fairphone_open" >&2
+			# perform a factory reset
+			# Source: https://android.stackexchange.com/questions/175885/how-to-factory-reset-android-using-adb
+			## Almost bricks the device
+			#reboot_bootloader=$(adb reboot bootloader)
+			#echo "Reboot bootloader command output is:$reboot_bootloader" >&2
+			#echo $reboot_bootloader > "${LOG_PATH}"
+			#echo "waiting 30 seconds.." >&2
+			#sleep 20
+			#read -p "Please press <enter> once the device is in fastboot mode." sink
+			## TODO: implement loop that checks if the device is in fastboot mode
+			#fastboot_erase_userdata=$(fastboot erase userdata)
+			#echo "fastboot_erase_userdata command output is:$fastboot_erase_userdata" >&2
+			#
+			#fastboot_erase_cache=$(fastboot erase cache)
+			#echo "fastboot_erase_cache command output is:$fastboot_erase_cache" >&2
+			#
+			#fastboot_reboot=$(fastboot reboot)
+			#echo " command output is:$fastboot_erase_cache" >&2
+			
+			final_adb_reboot=$(adb reboot)
+			echo $final_adb_reboot > "${FINAL_ADB_REBOOT_PATH}"
+		fi
+		if [ "$OS_CHOICE" == "lineage_os" ]; then
+			echo "Post sideloading reboot for lineage_os" >&2
+			final_adb_reboot=$(adb reboot)
+			echo $final_adb_reboot > "${FINAL_ADB_REBOOT_PATH}"
+		fi
+		
+		
 	else
 		exit 0
 	fi
