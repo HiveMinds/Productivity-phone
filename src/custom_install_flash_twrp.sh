@@ -7,6 +7,7 @@ apt_update() {
 		## Verify the device is recognised by adb debugging
 		# read device id from file
 		device_id=$(head -c 8 "$DEVICE_ID_PATH")
+		echo "The device id is:$device_id" >&2
 		
 		sleep 10
 		# break if device id is found and contains 8 characters

@@ -1,6 +1,6 @@
 #OS_CHOICE="fairphone_os"
-#OS_CHOICE="fairphone_open"
-OS_CHOICE="lineage_os"
+OS_CHOICE="fairphone_open"
+#OS_CHOICE="lineage_os"
 
 LOG_LOCATION=src/logs/
 SUPPORTED_SOFTWARE_LIST_LOCATION=src/supported_software.txt

@@ -31,7 +31,7 @@ apt_update() {
 		#read -p "Starting the sideloading" sink
 		echo "Starting the sideloading, please be patient, we will let you know once the sideloading is completed." >&2
 		
-		sleep 10
+		sleep 20
 		
 		sideload_lineage=$(sudo adb sideload $os_filepath)
 		#read -p "(<press enter when read>)The output of the sideload lineage command is:$sideload_lineage" sink
@@ -40,7 +40,7 @@ apt_update() {
 		# TODO: refactor to Sideload_os_data_path
 		echo $sideload_lineage > "${SIDELOAD_LINEAGE_DATA_PATH}"
 		
-		sleep 10
+		sleep 20
 		#read -p "Now starting exit sideloading<press enter>" sink
 		echo "Now starting exit sideloading." >&2
 		
@@ -48,27 +48,27 @@ apt_update() {
 		exit_sideloading=$(sudo adb sideload /dev/null)
 		#read -p "<press enter when read>The output of the sideload lineage command is:$exit_sideloading" sink
 		echo "The output of the sideload lineage command is:$exit_sideloading." >&2
-		sleep 5
+		sleep 20
 		
 		# TODO: format data before reboot
 		wipe_data=$(adb shell twrp wipe data)
 		echo $wipe_data > "${WIPE_DATA_PATH}"
 		#read -p "<press enter when read>The output of the post-sideloading  wiping of data is:$wipe_data" sink
 		echo "The output of the post-sideloading  wiping of data is:$wipe_data" >&2
-		sleep 5
+		sleep 20
 		
 		wipe_cache=$(adb shell twrp wipe cache)
 		echo $wipe_cache > "${WIPE_CACHE_PATH}"
 		#read -p "<press enter when read>The output of the post-sideloading  wiping of cache is:$wipe_cache" sink
 		echo "The output of the post-sideloading  wiping of cache is:$wipe_cache" >&2
 		
-		sleep 5
+		sleep 20
 		
 		wipe_dalvik=$(adb shell twrp wipe dalvik)
 		echo $wipe_dalvik > "${WIPE_DALVIK_PATH}"
 		#read -p "<press enter when read>The output of the post-sideloading wiping of dalvik is:$wipe_cache" sink
 		echo "The output of the post-sideloading wiping of dalvik is:$wipe_cache" >&2
-		sleep 5
+		sleep 20
 		
 		# This removes the operating system (that was just sideloaded).
 		#wipe_system=$(adb shell twrp wipe system)
@@ -115,5 +115,6 @@ apt_update() {
 		exit 0
 	fi
 	echo "The installation of the other operating system is now completed. Please wait 10 minutes for the new OS to boot and start up for the first time." >&2
+	echo "PLEASE DISCONNECT THE PHONE FROM THE COMPUTER." >&2
 }
 apt_update "$@"
