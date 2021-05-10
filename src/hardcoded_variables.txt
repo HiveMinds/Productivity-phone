@@ -1,0 +1,77 @@
+#OS_CHOICE="fairphone_os"
+OS_CHOICE="fairphone_open"
+#OS_CHOICE="lineage_os"
+
+LOG_LOCATION=src/logs/
+SUPPORTED_SOFTWARE_LIST_LOCATION=src/supported_software.txt
+SELECTED_SOFTWARE_LIST_LOCATION=src/logs/selected_software.txt
+SELECTED_SOFTWARE_FILENAME=selected_software.txt
+INSTALLATION_TYPES=("apt" "snap" "custom" "needUserInput" "deviceDependent")
+USER1_APT_PACKAGES=("github" "somepackage")
+USER1_SNAP_PACKAGES=("none" "otherfiller")
+USER1_CUSTOM_PACKAGES=("custompackage" "anothercustompackage")
+USER1_NEEDUSERINPUT_PACKAGES=("needuserinputpackage" "anotherneeduserinputpackage")
+USER1_DEVICEDEPENDENT_PACKAGES=("devicedependentpackage" "anotherdevicedependentpackage")
+
+# EnergizedProtection
+
+FILEPATH_UNPACKED_PACKAGE=$LOG_LOCATION"hosts"
+FILEPATH_HOST=/etc/hosts
+FILEPATH_NR_LINES_HOSTFILE=$LOG_LOCATION"target_file_length"
+TARGET_DUPLICATE_PATH=$LOG_LOCATION"hosts"
+FILEPATH_HOSTFILE_CONTAINS_UNMODIFIED_PACKAGE=$LOG_LOCATION"target_contains_social_package"
+FILEPATH_HOSTFILE_CONTAINS_MODIFIED_PACKAGE=$LOG_LOCATION"target_contains_modified_social_package"
+FILEPATH_PACKAGE_INDICATOR_LINE_NR=$LOG_LOCATION"starting_line_query_result"
+ENDING_LINE_QUERY_VAR_PATH=$LOG_LOCATION"ending_line_query_result"
+FILEPATH_RELATIVE_ENDING_LINE_NR_OF_PACKAGE=$LOG_LOCATION"relative_ending_line_nr_social_package"
+FILEPATH_LINE_NR_PACKAGE_END_IN_HOSTFILE=$LOG_LOCATION"absolute_ending_line_nr_social_package"
+FILEPATH_NR_LINES_IN_HOSTFILE_AFTER_PACKAGE_INDICATOR=$LOG_LOCATION"remaining_nr_of_lines_in_target_after_starting_line"
+FILEPATH_REMAINING_LINES_HOSTFILE_AFTER_PACKAGE_INDICATOR=$LOG_LOCATION"remaining_lines_in_target_after_starting_line"
+FILEPATH_HOST_AFTER_MODIFIED_PACKAGE_REMOVAL=$LOG_LOCATION"target_path_after_modified_package_removal"
+
+TWRP_LINK="https://dl.twrp.me/FP2/twrp-3.5.2_9-0-FP2.img"
+TWRP_URL="https://dl.twrp.me/FP2/twrp-3.5.2_9-0-FP2.img.html"
+TWRP_FILENAME="twrp-3.5.2_9-0-FP2.img"
+TWRP_PATH=$LOG_LOCATION"site.html"
+#TWRP_FILEPATH=$LOG_LOCATION$TWRP_FILENAME
+TWRP_FILEPATH=src/$TWRP_FILENAME
+TWRP_MD5="a3ae89602904976611bc382e27aba306"
+
+#LINEAGEOS_URL="https://mirrorbits.lineageos.org/full/FP2/20210430/lineage-17.1-20210430-nightly-FP2-signed.zip"
+LINEAGEOS_URL="https://mirrors.dotsrc.org/lineageos/full/FP2/20210430/lineage-17.1-20210430-nightly-FP2-signed.zip"
+LINEAGEOS_FILENAME="lineage-17.1-20210430-nightly-FP2-signed.zip"
+LINEAGEOS_FILEPATH=$LOG_LOCATION$LINEAGEOS_FILENAME
+LINEAGEOS_MD5="1b5f54b8a256035e114d2422e5731d8e"
+
+# Source: https://support.fairphone.com/hc/en-us/articles/207914363
+FAIRPHONE_OS_URL="https://storage.googleapis.com/fairphone-updates/13484ddf-8791-4a7a-a876-641d5e8eb3ab/fp2-gms-19.11.2-manual-v2.zip"
+FAIRPHONE_OS_FILENAME="fp2-gms-19.11.2-manual-v2.zip"
+FAIRPHONE_OS_FILEPATH=$LOG_LOCATION$FAIRPHONE_OS_FILENAME
+FAIRPHONE_OS_MD5="e1601288869f99143b664ea98f825760"
+
+# Source: https://code.fairphone.com/projects/fp-osos/user/fairphone-open-source-os-downloads.html
+FAIRPHONE_OPEN_URL="https://storage.googleapis.com/fairphone-updates/ed0bd398-399b-4fb0-88f9-f2142fd425ad/21.03.0-rel.2-sibon-3cb25d6c-ota.zip"
+FAIRPHONE_OPEN_FILENAME="19.11.2-sibon-24df0be9-ota.zip"
+FAIRPHONE_OPEN_FILEPATH=$LOG_LOCATION$FAIRPHONE_OPEN_FILENAME
+FAIRPHONE_OPEN_MD5="259d263a44e427e4bf7ad1426c52e993"
+
+
+
+
+
+DEVICE_ID_FILENAME="device_id.txt"
+FASTBOOT_DEVICE_ID_FILENAME="fastboot_device_id.txt"
+FASTBOOT_MODE_RESPONSE_FILENAME="fastboot_mode_response.txt"
+DEVICE_ID_PATH=$LOG_LOCATION$DEVICE_ID_FILENAME
+FASTBOOT_DEVICE_ID_PATH=$LOG_LOCATION$FASTBOOT_DEVICE_ID_FILENAME
+FASTBOOT_MODE_RESPONSE_PATH=$LOG_LOCATION$FASTBOOT_MODE_RESPONSE_FILENAME
+
+TIMESTAMP_PATH=$LOG_LOCATION"timestamp.txt"
+
+WIPE_DATA_PATH=$LOG_LOCATION"wipe_data.txt"
+WIPE_CACHE_PATH=$LOG_LOCATION"wipe_cache.txt"
+WIPE_DALVIK_PATH=$LOG_LOCATION"wipe_dalvik.txt"
+WIPE_SYSTEM_PATH=$LOG_LOCATION"wipe_system.txt"
+
+SIDELOAD_LINEAGE_DATA_PATH=$LOG_LOCATION"sideload_lineage.txt"
+FINAL_ADB_REBOOT_PATH=$LOG_LOCATION"final_adb_reboot.txt"

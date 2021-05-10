@@ -1,0 +1,17 @@
+installationType: apt
+apt: spotify
+apt: github
+apt: signal
+apt: adb
+apt: fastboot
+installationType: snap
+installationType: custom
+custom: enable_adb
+custom: get_twrp
+custom: reboot_bootloader
+custom: flash_twrp
+custom: get_lineageos
+custom: twrp_format_data
+custom: sideload_lineage
+installationType: needUserInput
+installationType: deviceDependent
