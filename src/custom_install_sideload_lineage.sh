@@ -45,37 +45,32 @@ apt_update() {
 		echo "Now starting exit sideloading." >&2
 		
 		
-		exit_sideloading=$(sudo adb sideload /dev/null)
-		#read -p "<press enter when read>The output of the sideload lineage command is:$exit_sideloading" sink
-		echo "The output of the sideload lineage command is:$exit_sideloading." >&2
-		sleep 20
+		#exit_sideloading=$(sudo adb sideload /dev/null)
+		#echo "The output of the sideload lineage command is:$exit_sideloading." >&2
+		#sleep 20
 		
 		# TODO: format data before reboot
-		wipe_data=$(adb shell twrp wipe data)
-		echo $wipe_data > "${WIPE_DATA_PATH}"
-		#read -p "<press enter when read>The output of the post-sideloading  wiping of data is:$wipe_data" sink
-		echo "The output of the post-sideloading  wiping of data is:$wipe_data" >&2
-		sleep 20
+		#wipe_data=$(adb shell twrp wipe data)
+		#echo $wipe_data > "${WIPE_DATA_PATH}"
+		#echo "The output of the post-sideloading  wiping of data is:$wipe_data" >&2
+		#sleep 20
 		
-		wipe_cache=$(adb shell twrp wipe cache)
-		echo $wipe_cache > "${WIPE_CACHE_PATH}"
-		#read -p "<press enter when read>The output of the post-sideloading  wiping of cache is:$wipe_cache" sink
-		echo "The output of the post-sideloading  wiping of cache is:$wipe_cache" >&2
+		#wipe_cache=$(adb shell twrp wipe cache)
+		#echo $wipe_cache > "${WIPE_CACHE_PATH}"
+		#echo "The output of the post-sideloading  wiping of cache is:$wipe_cache" >&2
+		#sleep 20
 		
-		sleep 20
-		
-		wipe_dalvik=$(adb shell twrp wipe dalvik)
-		echo $wipe_dalvik > "${WIPE_DALVIK_PATH}"
-		#read -p "<press enter when read>The output of the post-sideloading wiping of dalvik is:$wipe_cache" sink
-		echo "The output of the post-sideloading wiping of dalvik is:$wipe_cache" >&2
-		sleep 20
+		#wipe_dalvik=$(adb shell twrp wipe dalvik)
+		#echo $wipe_dalvik > "${WIPE_DALVIK_PATH}"
+		#echo "The output of the post-sideloading wiping of dalvik is:$wipe_cache" >&2
+		#sleep 20
 		
 		# This removes the operating system (that was just sideloaded).
 		#wipe_system=$(adb shell twrp wipe system)
 		#echo $wipe_system > "${WIPE_SYSTEM_PATH}"
 		#read -p "<press enter when read>The output of the post-sideloading wiping of system is:$wipe_system" sink
 		
-		read -p "LAST CHANCE TO INSPECT THE INSTALLATION LOG ON THE PHONE" sink
+		#read -p "LAST CHANCE TO INSPECT THE INSTALLATION LOG ON THE PHONE" sink
 		
 		echo "Now going to reboot the system." >&2
 		
@@ -100,6 +95,9 @@ apt_update() {
 			#
 			#fastboot_reboot=$(fastboot reboot)
 			#echo " command output is:$fastboot_erase_cache" >&2
+			
+			format_data=$(adb shell twrp format data)
+			echo "The output of command format_data is:$format_data" >&2
 			
 			final_adb_reboot=$(adb reboot)
 			echo $final_adb_reboot > "${FINAL_ADB_REBOOT_PATH}"
