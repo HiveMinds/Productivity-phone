@@ -1,0 +1,15 @@
+stages:
+  - install
+  - test
+
+install:
+  stage: install
+  script:
+    chmod +x main.sh
+    ./main.sh
+
+test:
+  stage: test
+  script:
+    chmod +x test.sh
+    ./test.sh
