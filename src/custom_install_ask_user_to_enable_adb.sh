@@ -1,12 +1,12 @@
 #!/bin/bash
 custom_install() {
-	local LOG_PATH=$1
 	
 	# TODO: include gif display:https://unix.stackexchange.com/questions/317537/how-to-open-a-gif-without-loop-repetition-with-oeg
 	# Note. gif in terminal is awesome but not practical because the chosen installation options and responses should remain visible.
 	while :
 	do
-		read -p "Please enable adb-debugging on your phone. See enable_adb.gif on how to do so. Answer y when don$x and $yn e.?" yn
+		# shellcheck disable=SC2154
+		read -rp "Please enable adb-debugging on your phone. See enable_adb.gif on how to do so. Answer y when don$x and $yn e.?" yn
 		if [ "$yn" == "y" ]
 		then
 		
@@ -23,7 +23,7 @@ custom_install() {
 			# read device id from file
 			#device_id=$(head -c 8 "$DEVICE_ID_PATH")
 			device_id=$(head -c 8 "$DEVICE_ID_PATH")
-			read -d $'\x04' device_id < "$DEVICE_ID_PATH"
+			read -rd $'\x04' device_id < "$DEVICE_ID_PATH"
 			
 			# break if device id is found and contains 8 characters
 			#if [ ${#device_id} -eq 8 ]; then 

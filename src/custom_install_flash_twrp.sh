@@ -1,6 +1,5 @@
 #!/bin/bash
 apt_update() {
-	local LOG_PATH=$1
 	
 	while :
 	do		

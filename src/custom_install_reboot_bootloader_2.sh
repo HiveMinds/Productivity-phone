@@ -1,6 +1,5 @@
 #!/bin/bash
 apt_update() {
-	local LOG_PATH=$1
 	
 	while :
 	do		
@@ -28,7 +27,7 @@ apt_update() {
 				break
 			else
 				now=$(date +"%T")
-				echo $now > "${TIMESTAMP_PATH}"
+				echo "$now" > "${TIMESTAMP_PATH}"
 			fi
 		fi
 		

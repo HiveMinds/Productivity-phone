@@ -1,6 +1,5 @@
 #!/bin/bash
 apt_update() {
-	local LOG_PATH=$1
 	
 	## Verify the device is recognised by adb debugging
 	# read device id using adb
@@ -16,31 +15,31 @@ apt_update() {
 		#read -p "Starting erasing data with trp shell<press enter>" sink
 		echo "Starting erasing data with trp shell" >&2
 		wipe_data=$(adb shell twrp wipe data)
-		echo $wipe_data > "${WIPE_DATA_PATH}"
+		echo "$wipe_data" > "${WIPE_DATA_PATH}"
 		echo "Completed erasing data with trp shell" >&2
 		
 		#read -p "Starting erasing cache with trp shell<press enter>" sink
 		echo "Starting erasing cache with trp shell" >&2
 		wipe_cache=$(adb shell twrp wipe cache)
-		echo $wipe_cache > "${WIPE_CACHE_PATH}"
+		echo "$wipe_cache" > "${WIPE_CACHE_PATH}"
 		echo "Completed erasing cache with trp shell" >&2
 		
 		#read -p "Starting erasing dalvik with trp shell<press enter>" sink
 		echo "Starting erasing dalvik with trp shell" >&2
 		wipe_dalvik=$(adb shell twrp wipe dalvik)
-		echo $wipe_dalvik > "${WIPE_DALVIK_PATH}"
+		echo "$wipe_dalvik" > "${WIPE_DALVIK_PATH}"
 		echo "Completed erasing dalvik with trp shell" >&2
 		
 		#read -p "Starting erasing /system with trp shell<press enter>" sink
 		echo "Starting erasing system with trp shell" >&2
 		wipe_system=$(adb shell twrp wipe /system)
-		echo $wipe_system > "${WIPE_SYSTEM_PATH}"
+		echo "$wipe_system" > "${WIPE_SYSTEM_PATH}"
 		echo "Completed erasing /system with trp shell" >&2
 		
 		#read -p "Starting erasing system with trp shell<press enter>" sink
 		echo "Starting erasing system with trp shell" >&2
 		wipe_system=$(adb shell twrp wipe system)
-		echo $wipe_system > "${WIPE_SYSTEM_PATH}"
+		echo "$wipe_system" > "${WIPE_SYSTEM_PATH}"
 		echo "Completed erasing system with trp shell" >&2
 	else
 		exit 0
