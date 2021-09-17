@@ -3,7 +3,7 @@
 hardcode_user1_choice_example() {
 	for i in "${!INSTALLATION_TYPES[@]}"; do
 		# Append the installation type to the user selection log
-		echo "installationType: ${INSTALLATION_TYPES[i]}" >> $LOG_LOCATION$SELECTED_SOFTWARE_FILENAME
+		echo "installationType: ${INSTALLATION_TYPES[i]}" >> "$LOG_LOCATION""$SELECTED_SOFTWARE_FILENAME"
 		if [ "${INSTALLATION_TYPES[i]}" == apt ]; then
 			write_package_to_selected_software_log "${INSTALLATION_TYPES[i]}" "${USER1_APT_PACKAGES[@]}"
 		fi
@@ -24,7 +24,7 @@ hardcode_user1_choice_example() {
 
 # Create user that installs all supported options
 create_greedy_user() {
-	cp $SUPPORTED_SOFTWARE_LIST_LOCATION $SELECTED_SOFTWARE_LIST_LOCATION
+	cp "$SUPPORTED_SOFTWARE_LIST_LOCATION" "$SELECTED_SOFTWARE_LIST_LOCATION"
 }
 
 write_package_to_selected_software_log() {
@@ -38,7 +38,7 @@ write_package_to_selected_software_log() {
 		#echo "package"
 		#echo "${packages[j]}"
 		# add the software package to the user selection log
-		echo "$installation_type: "${packages[j]} >> $LOG_LOCATION$SELECTED_SOFTWARE_FILENAME
+		echo "$installation_type: ""${packages[j]}" >> "$LOG_LOCATION""$SELECTED_SOFTWARE_FILENAME"
 	done
 }
 
@@ -56,7 +56,7 @@ actual_result_has_any_allowed_result_in_tail() {
 	list_size=${#allowed_results}
 
 	# Only engage this function if the list size is greater than 1
-	if [ $list_size -gt 1 ]; then echo "error";
+	if [ "$list_size" -gt 1 ]; then echo "error";
 	
 		# if the actual result is in the acceptable list ensure function returns true
 		for allowed_result in "${allowed_results[@]}"
@@ -67,17 +67,17 @@ actual_result_has_any_allowed_result_in_tail() {
 				actual_result_size=${#actual_result}
 				
 				# TODO: remove this if condition and directly go to Else by switching lt to ge
-				if [ $actual_result_size -lt $allowed_result_size ]; then echo "error";
+				if [ "$actual_result_size" -lt "$allowed_result_size" ]; then echo "error";
 					echo "The actual size is:"
-					echo $actual_result_size
+					echo "$actual_result_size"
 					echo "WHEREAS allowed_result_size=" 
-					echo $allowed_result_size
+					echo "$allowed_result_size"
 					echo "so actual is smaller than allowed, so do nothing"
 				else 
 					# test if left string is in the tail of the allowed result string
 					# TODO: include contains option in separate function
 					temp_test_result=$(right_is_in_tail_of_left "$actual_result" "$allowed_result");
-					if [ $(echo -n $temp_test_result | tail -c 4) == true ]; then
+					if [ "$(echo -n "$temp_test_result" | tail -c 4)" == true ]; then
 						test_result=true
 					fi
 				fi
@@ -102,7 +102,7 @@ actual_result_has_any_allowed_result_in_head() {
 	list_size=${#allowed_results}
 
 	# Only engage this function if the list size is greater than 1
-	if [ $list_size -gt 1 ]; then echo "error";
+	if [ "$list_size" -gt 1 ]; then echo "error";
 	
 		# if the actual result is in the acceptable list ensure function returns true
 		for allowed_result in "${allowed_results[@]}"
@@ -113,17 +113,17 @@ actual_result_has_any_allowed_result_in_head() {
 				actual_result_size=${#actual_result}
 				
 				# TODO: remove this if condition and directly go to Else by switching lt to ge
-				if [ $actual_result_size -lt $allowed_result_size ]; then echo "error";
+				if [ "$actual_result_size" -lt "$allowed_result_size" ]; then echo "error";
 					echo "The actual size is:"
-					echo $actual_result_size
+					echo "$actual_result_size"
 					echo "WHEREAS allowed_result_size=" 
-					echo $allowed_result_size
+					echo "$allowed_result_size"
 					echo "so actual is smaller than allowed, so do nothing"
 				else 
 					# test if left string is in the tail of the allowed result string
 					# TODO: include contains option in separate function
 					temp_test_result=$(right_is_in_head_of_left "$actual_result" "$allowed_result");
-					if [ $(echo -n $temp_test_result | tail -c 4) == true ]; then
+					if [ "$(echo -n "$temp_test_result" | tail -c 4)" == true ]; then
 						test_result=true
 					fi
 				fi
@@ -148,7 +148,7 @@ actual_result_contains_any_allowed_result() {
 	list_size=${#allowed_results}
 
 	# Only engage this function if the list size is greater than 1
-	if [ $list_size -gt 1 ]; then echo "error";
+	if [ "$list_size" -gt 1 ]; then echo "error";
 	
 		# if the actual result is in the acceptable list ensure function returns true
 		for allowed_result in "${allowed_results[@]}"
@@ -159,17 +159,17 @@ actual_result_contains_any_allowed_result() {
 				actual_result_size=${#actual_result}
 				
 				# TODO: remove this if condition and directly go to Else by switching lt to ge
-				if [ $actual_result_size -lt $allowed_result_size ]; then echo "error";
+				if [ "$actual_result_size" -lt "$allowed_result_size" ]; then echo "error";
 					echo "The actual size is:"
-					echo $actual_result_size
+					echo "$actual_result_size"
 					echo "WHEREAS allowed_result_size=" 
-					echo $allowed_result_size
+					echo "$allowed_result_size"
 					echo "so actual is smaller than allowed, so do nothing"
 				else 
 					# test if left string is in the tail of the allowed result string
 					# TODO: include contains option in separate function
 					temp_test_result=$(left_contains_right "$actual_result" "$allowed_result");
-					if [ $(echo -n $temp_test_result | tail -c 4) == true ]; then
+					if [ "$(echo -n "$temp_test_result" | tail -c 4)" == true ]; then
 						test_result=true
 					fi
 				fi
@@ -188,8 +188,8 @@ right_is_in_head_of_left() {
 	right_size=${#right}
 
 	# Output true or false to pass test result to parent function
-	left_head_chars=$(echo -n $left | head -c $right_size)
-	echo $(equal_strings "$left_head_chars" "$right")
+	left_head_chars=$(echo -n "$left" | head -c "$right_size")
+	cmd "$(equal_strings "$left_head_chars" "$right")"
 }
 
 # Assumes the actual result is shorter than the allowed result
@@ -197,10 +197,10 @@ right_is_in_tail_of_left() {
 	left=$1
 	right=$2
 	right_size=${#right}
-	left_tail_chars=$(echo -n $left | tail -c $right_size)
+	left_tail_chars=$(echo -n "$left" | tail -c "$right_size")
 
 	# Output true or false to pass test result to parent function
-	echo $(equal_strings "$left_tail_chars" "$right")
+	cmd "$(equal_strings "$left_tail_chars" "$right")"
 }
 
 # Assumes both strings have equal lengths

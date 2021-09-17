@@ -1,6 +1,6 @@
 #!/bin/bash
 # Declare filenames of files that perform commands to install github
-custom_sideload_lineage() {
+custom_side_load_lineage() {
 	
 	# Declare filenames of files that perform commands
 	# TODO: Install curl and test it
@@ -16,6 +16,6 @@ custom_sideload_lineage() {
 	done
 }
 
-test_custom_sideload_lineage() {
-	./test/libs/bats/bin/bats test/post_setup/test_custom_sideload_lineage_postsetup.bats
+test_custom_side_load_lineage() {
+	./test/libs/bats/bin/bats test/post_setup/test_custom_side_load_lineage_postsetup.bats
 }

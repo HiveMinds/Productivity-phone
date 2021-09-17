@@ -20,7 +20,7 @@ get_device_id_with_fastboot() {
 		
 		# check if device id is detected
 		if [ "$device_id" == "" ]; then
-			read -p "The pc was not able to detect your phone, most likely you did not enable adb debugging. Please do so. Have you done that?" yn
+			read -rp "The pc was not able to detect your phone, most likely you did not enable adb debugging. Please do so. Have you done that?" yn
 		fi
 	done
 	echo "$device_id" > "${FASTBOOT_DEVICE_ID_PATH}"

@@ -27,7 +27,7 @@ apt_add_signal_repo_to_repo_list() {
 		# signal repository list should only contain one url, and that is the one specified here:
 		update=$(echo "deb [arch=amd64] https://updates.signal.org/desktop/apt xenial main" | sudo tee /etc/apt/sources.list.d/signal-xenial.list)
 		# export overwriting command output to log file
-		echo $update > "${LOG_PATH}"
+		echo "$update" > "${LOG_PATH}"
 	else
 		echo "The signal repository was already added to the list of signal repositories." > "${LOG_PATH}"
 	fi

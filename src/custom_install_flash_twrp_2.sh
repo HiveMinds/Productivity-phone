@@ -18,12 +18,12 @@ apt_update() {
 		flashed_and_rebooted_into_twrp_successfully="false"
 		while [ "$flashed_and_rebooted_into_twrp_successfully" == "false" ]
 		do
-			read -p "We will now flash twrp to your phone. It is IMPORTANT that you keep your phone connected. Will you keep your phone connected?" yn
+			read -rp "We will now flash twrp to your phone. It is IMPORTANT that you keep your phone connected. Will you keep your phone connected?" yn
 			if [ "$yn" == "y" ]; then			
 				# Flash phone.
 				#update=$(fastboot reboot)
-				update=$(fastboot flash recovery $TWRP_FILEPATH)
-				echo $update > "${LOG_PATH}"
+				update=$(fastboot flash recovery "$TWRP_FILEPATH")
+				echo "$update" > "${LOG_PATH}"
 				
 				
 				# Source; https://forum.fairphone.com/t/twrp-3-2-1-0-fp2-img-not-functional-on-my-new-fairphone2/39079
@@ -59,10 +59,9 @@ apt_update() {
 				while [ "$rebooted_into_recovery_mode" == "false" ]
 				do
 					#read -p "Please press and hold the POWER ON/OFF+VOLUME UP button untill the device reboots, AND while it is rebooting untill you see the blue TWRP screen. answer yes once you're done." yn # the device does not respond to holding this combination, perhaps because the computer controls it or because combo only is recognized in adb mode and not in fastboot mode.
-					read -p "When the screen goes black (1 sec after answering y), immediately press and hold  POWER ON+VOLUME UP till you see the blue TWRP screen. Will you  do that?" yn
+					read -rp "When the screen goes black (1 sec after answering y), immediately press and hold  POWER ON+VOLUME UP till you see the blue TWRP screen. Will you  do that?" yn
 					if [ "$yn" == "y" ]; then
 						sleep 1
-						reboot_into_twrp=$(fastboot reboot)
 						#reboot_into_twrp=$(fastboot reboot recovery) # try to boot automatically into twrp, returns: fastboot: usage: unknown reboot target recovery
 						sleep 20
 					fi
@@ -76,7 +75,7 @@ apt_update() {
 						rebooted_into_recovery_mode="true"
 						flashed_and_rebooted_into_twrp_successfully="true"
 					else
-						read -p "You did not reboot into twrp succesfully. That is okay, just restart this installer (CTRL+C) to stop it, and try again. Ignore the errors below." sink
+						read -rp "You did not reboot into twrp succesfully. That is okay, just restart this installer (CTRL+C) to stop it, and try again. Ignore the errors below." sink
 						# TODO: Terminate installation.
 					fi
 				done
