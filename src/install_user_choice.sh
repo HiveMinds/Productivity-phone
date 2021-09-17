@@ -14,39 +14,50 @@ source src/custom_twrp_format_data.sh
 source src/custom_sideload_lineage.sh
 
 install_user_choices() {
-	selected_software_packages=($(read_software_packages "selected")) # outer brackets to store as list
-	
+	selected_software_packages=("$(read_software_packages "selected")") # outer brackets to store as list
+
 	# loop through selected packages
 	for i in "${!selected_software_packages[@]}"; do
 		if [ "${selected_software_packages[i]}" == github ]; then
+			# shellcheck disable=SC2091
 			$(install_github) # install user choice: github
 		elif [ "${selected_software_packages[i]}" == signal ]; then
+			# shellcheck disable=SC2091
 			$(install_signal) # install user choice: signal
 		elif [ "${selected_software_packages[i]}" == adb ]; then
+			# shellcheck disable=SC2091
 			$(install_adb) # install user choice: adb
 		elif [ "${selected_software_packages[i]}" == fastboot ]; then
+			# shellcheck disable=SC2091
 			$(install_fastboot) # install user choice: fastboot
 		elif [ "${selected_software_packages[i]}" == enable_adb ]; then
+			# shellcheck disable=SC2091
 			$(custom_ask_user_to_enable_adb) # install user choice: fastboot
 		elif [ "${selected_software_packages[i]}" == get_twrp ]; then
+			# shellcheck disable=SC2091
 			$(custom_get_twrp) # install user choice: fastboot
 		elif [ "${selected_software_packages[i]}" == reboot_bootloader ]; then
+			# shellcheck disable=SC2091
 			$(custom_reboot_bootloader) # install user choice: fastboot
 		elif [ "${selected_software_packages[i]}" == flash_twrp ]; then
+			# shellcheck disable=SC2091
 			$(custom_flash_twrp) # install user choice: fastboot
 		elif [ "${selected_software_packages[i]}" == get_lineageos ]; then
+			# shellcheck disable=SC2091
 			$(custom_get_lineageos) # install user choice: fastboot
 		elif [ "${selected_software_packages[i]}" == twrp_format_data ]; then
+			# shellcheck disable=SC2091
 			$(custom_twrp_format_data) # install user choice: fastboot
 		elif [ "${selected_software_packages[i]}" == sideload_lineage ]; then
+			# shellcheck disable=SC2091
 			$(custom_sideload_lineage) # install user choice: fastboot
 		fi
 	done
 }
 
 test_user_choice_installation() {
-	selected_software_packages=($(read_software_packages "selected")) # outer brackets to store as list
-	
+	selected_software_packages=("$(read_software_packages "selected")") # outer brackets to store as list
+
 	# loop through selected packages
 	for i in "${!selected_software_packages[@]}"; do
 		if [ "${selected_software_packages[i]}" == github ]; then

@@ -7,6 +7,6 @@ apt_update() {
 
 	# 3. Update your package database and install signal
 	update=$(sudo apt install signal-desktop)
-	echo $update > "${LOG_PATH}"
+	echo "$update" > "${LOG_PATH}"
 }
 apt_update "$@"

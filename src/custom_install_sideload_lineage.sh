@@ -1,6 +1,5 @@
 #!/bin/bash
 apt_update() {
-	local LOG_PATH=$1
 	
 	## Verify the device is recognised by adb debugging
 	# read device id using adb
@@ -26,6 +25,7 @@ apt_update() {
 	if [ ${#device_id} -eq 8 ]; then 
 	
 		# enable sideloading
+		# shellcheck disable=SC2034
 		enable_sideloading=$(adb shell twrp sideload)
 		#echo $enable_sideloading > "${ENABLE_SIDELOADING_DATA_PATH}"
 		#read -p "Starting the sideloading" sink
@@ -33,12 +33,12 @@ apt_update() {
 		
 		sleep 20
 		
-		sideload_lineage=$(sudo adb sideload $os_filepath)
-		#read -p "(<press enter when read>)The output of the sideload lineage command is:$sideload_lineage" sink
-		echo "The output of the sideload lineage command is:$sideload_lineage" >&2
+		side_load_lineage=$(sudo adb sideload "$os_filepath")
+		#read -p "(<press enter when read>)The output of the sideload lineage command is:$side_load_lineage" sink
+		echo "The output of the sideload lineage command is:$side_load_lineage" >&2
 		
 		# TODO: refactor to Sideload_os_data_path
-		echo $sideload_lineage > "${SIDELOAD_LINEAGE_DATA_PATH}"
+		echo "$side_load_lineage" > "${SIDELOAD_LINEAGE_DATA_PATH}"
 		
 		sleep 20
 		#read -p "Now starting exit sideloading<press enter>" sink
@@ -100,12 +100,12 @@ apt_update() {
 			echo "The output of command format_data is:$format_data" >&2
 			
 			final_adb_reboot=$(adb reboot)
-			echo $final_adb_reboot > "${FINAL_ADB_REBOOT_PATH}"
+			echo "$final_adb_reboot" > "${FINAL_ADB_REBOOT_PATH}"
 		fi
 		if [ "$OS_CHOICE" == "lineage_os" ]; then
 			echo "Post sideloading reboot for lineage_os" >&2
 			final_adb_reboot=$(adb reboot)
-			echo $final_adb_reboot > "${FINAL_ADB_REBOOT_PATH}"
+			echo "$final_adb_reboot" > "${FINAL_ADB_REBOOT_PATH}"
 		fi
 		
 		

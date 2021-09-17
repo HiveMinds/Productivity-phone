@@ -15,7 +15,8 @@ apt_update() {
 		device_id=$(head -c 8 "$DEVICE_ID_PATH")
 		
 		# break if device id is found and contains 8 characters
-		if [ ${#device_id} -eq 8 ]; then 
+		if [ ${#device_id} -eq 8 ]; then
+			# shellcheck disable=SC2034
 			pass=""
 		else
 			exit 0
@@ -23,6 +24,6 @@ apt_update() {
 	
 	update=$(adb reboot bootloader)	
 	
-	echo $update > "${LOG_PATH}"
+	echo "$update" > "${LOG_PATH}"
 }
 apt_update "$@"

@@ -1,6 +1,5 @@
 #!/bin/bash
 custom_verify_fastboot_mode_enabled() {
-	local LOG_PATH=$1
 	
 	# verify the adb debugging mode is enabled.
 	actual_result=$(fastboot devices)

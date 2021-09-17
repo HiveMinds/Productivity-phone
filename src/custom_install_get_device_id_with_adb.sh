@@ -1,6 +1,5 @@
 #!/bin/bash
 get_device_id_with_adb() {
-	local LOG_PATH=$1
 	
 	device_id=""
 while [ "$device_id" == "" ]
@@ -27,13 +26,13 @@ do
 							
 					# check if the adb is allowed.
 					if [  "${addVar[5]}" == "unauthorized" ]; then
-						read -p "You did not give the computer permission to access your phone. Please reconnect your phone to the computer and press ok, when the pc asks for permmision. Have you done that?" yn
+						read -rp "You did not give the computer permission to access your phone. Please reconnect your phone to the computer and press ok, when the pc asks for permmision. Have you done that?" yn
 					fi
 					
 					# check if device id is detected
 					if [ "$device_id" == "" ]; then
 						if [ "$yn" == "" ]; then
-							read -p "The pc was not able to detect your phone, most likely you did not enable adb debugging. Please do so. Have you done that?" yn
+							read -rp "The pc was not able to detect your phone, most likely you did not enable adb debugging. Please do so. Have you done that?" yn
 						fi
 					fi
 				fi

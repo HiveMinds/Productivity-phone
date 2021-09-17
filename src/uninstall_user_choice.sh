@@ -17,42 +17,55 @@ source src/custom_anaconda.sh
 source src/custom_uninstall_anaconda.sh
 
 uninstall_user_choices() {
-	selected_software_packages=($(read_software_packages "selected")) # outer brackets to store as list
-	
+	selected_software_packages=("$(read_software_packages "selected")") # outer brackets to store as list
+
 	# loop through selected packages
 	for i in "${!selected_software_packages[@]}"; do
 		if [ "${selected_software_packages[i]}" == anaconda ]; then
+			# shellcheck disable=SC2091
 			$(uninstall_anaconda) # install user choice: anaconda
 		elif [ "${selected_software_packages[i]}" == anki ]; then
+			# shellcheck disable=SC2091
 			$(install_anki) # install user choice: anki
 		elif [ "${selected_software_packages[i]}" == autokey-gtk ]; then
+			# shellcheck disable=SC2091
 			$(install_autokey_gtk) # install user choice: autokey_gtk
 		elif [ "${selected_software_packages[i]}" == github ]; then
+			# shellcheck disable=SC2091
 			$(install_github) # install user choice: github
 		elif [ "${selected_software_packages[i]}" == keepass2 ]; then
+			# shellcheck disable=SC2091
 			$(install_keepass2) # install user choice: keepass2
 		elif [ "${selected_software_packages[i]}" == notepad++ ]; then
+			# shellcheck disable=SC2091
 			$(install_notepad_plus_plus) # install user choice: notepad_plus_plus
 		elif [ "${selected_software_packages[i]}" == openvpn3 ]; then
+			# shellcheck disable=SC2091
 			$(install_openvpn3) # install user choice: openvpn3
 		elif [ "${selected_software_packages[i]}" == privoxy ]; then
+			# shellcheck disable=SC2091
 			$(install_privoxy) # install user choice: privoxy
 		elif [ "${selected_software_packages[i]}" == searchmonkey ]; then
+			# shellcheck disable=SC2091
 			$(install_searchmonkey) # install user choice: searchmonkey
 		elif [ "${selected_software_packages[i]}" == signal ]; then
+			# shellcheck disable=SC2091
 			$(install_signal) # install user choice: signal
 		elif [ "${selected_software_packages[i]}" == texlive-xetex ]; then
+			# shellcheck disable=SC2091
 			$(install_texlive_xetex) # install user choice: texlive_xetex
 		elif [ "${selected_software_packages[i]}" == texmaker ]; then
+			# shellcheck disable=SC2091
 			$(install_texmaker) # install user choice: texmaker
 		elif [ "${selected_software_packages[i]}" == wine ]; then
+			# shellcheck disable=SC2091
 			$(install_wine) # install user choice: wine
 		fi
 	done
 }
 
 test_user_choice_uninstallation() {
-	selected_software_packages=($(read_software_packages "selected")) # outer brackets to store as list
+	selected_software_packages=("$(read_software_packages "selected")") # outer brackets to store as list
 	
 	# loop through selected packages
 	for i in "${!selected_software_packages[@]}"; do

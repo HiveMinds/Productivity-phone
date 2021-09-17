@@ -1,6 +1,5 @@
 #!/bin/bash
 verify_adb_enabled() {
-	local LOG_PATH=$1
 	
 	# verify the adb debugging mode is enabled.
 	actual_result=$(adb devices)
