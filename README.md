@@ -1,4 +1,8 @@
 ## What is this?
+# sponsor_example
+[![Build Status](https://raw.githubusercontent.com/a-t-0/gitlab-ci-build-statuses/master/hiveminds/Productivity-phone/main/build_status.svg)](http://2gzyxa5ihm7nsggfxnu52rck2vv4rvmdlkiu3zzui5du4xyclen53wid.onion/)
+
+
 Software that automatically installs and configures an opensource system on your phone that enables you to optimize your productivity. It empowers the user to actively select which information the user wants to consume by fencing off undesired digital tempations. It is opinionated in the sense that it blocks all social media, youtube, image searches, news sites and adult content. Not because I think they are bad, instead it is because I am highly passionate about the opportunities that I am given and I want to give those opportunities and pursuits my complete dedication. I hope this software can support fellow beings in reaching their goals.
 
 ## Future
