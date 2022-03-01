@@ -1,5 +1,4 @@
 ## What is this?
-# sponsor_example
 [![Build Status](https://raw.githubusercontent.com/a-t-0/gitlab-ci-build-statuses/master/hiveminds/Productivity-phone/main/build_status.svg)](http://2gzyxa5ihm7nsggfxnu52rck2vv4rvmdlkiu3zzui5du4xyclen53wid.onion/)
 
 
